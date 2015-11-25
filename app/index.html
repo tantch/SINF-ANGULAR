@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <title>Booky</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-
+  <script src="bower_components/angular-css/angular-css.js"></script>
   <script src="app.js"></script>
   <script src="js/controllers.js"></script>
+
 </head>
 <body >
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -27,8 +28,24 @@
         <a id="brand" class="navbar-brand" href="#/home">Booky</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-right" role="search">
+      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+        <div class="cart">
+          <div class="popup">
+            <div class="row header">
+              <span>Items</span>
+              <span>Amount</span>
+            </div>
+            <div class="row items">
+              <span>36</span>
+              <span>$2,345.12</span>
+            </div>
+            <div class="row checkout">
+              <span class="checkout-btn"><a class="checkout-button btn btn-primary" href="cart.html" role="button">Checkout</a></span>
+            </div>
+          </div>
+        </div>
+        <!--SEARCH FORM-->
+        <form class="navbar-form search-bar" role="search">
           <div class="form-group">
             <input id="search_input" type="text" class="form-control" placeholder="Search">
           </div>
