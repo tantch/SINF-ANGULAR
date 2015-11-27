@@ -2,42 +2,24 @@ var bookControllers = angular.module('bookControllers', [
   'ngRoute'
 ]);
 
+var cats = [
+  {name: "Aventura",cod: "AV"},
+  {name: "Ficção",cod: "FC"},
+  {name: "Romance",cod: "RM"},
+  {name: "Desporto",cod: "DP"},
+  {name: "Culinária",cod: "CL"},
+  {name: "Informática",cod: "IN"},
+  {name: "Viagens",cod: "VG"},
+  {name: "Fantástico",cod: "FN"},
+  {name: "Crime",cod: "CR"}
+];
+
+
+
 bookControllers.controller('HomeCtrl', function ($scope,$http) {
 
-  $(function() {
-    var pop = $('.popbtn');
-    var row = $('.row:not(:first):not(:last)');
 
-
-    pop.popover({
-      trigger: 'manual',
-      html: true,
-      container: 'body',
-      placement: 'bottom',
-      animation: false,
-      content: function() {
-        return $('#popover').html();
-      }
-    });
-
-
-    pop.on('click', function(e) {
-      pop.popover('toggle');
-      pop.not(this).popover('hide');
-    });
-
-    $(window).on('resize', function() {
-      pop.popover('hide');
-    });
-
-    row.on('touchend', function(e) {
-      $(this).find('.popbtn').popover('toggle');
-      row.not(this).find('.popbtn').popover('hide');
-      return false;
-    });
-
-  });
-
+  $scope.categories = cats;
   $http({
     url: "http://127.0.0.1:49822/api/artigos/listaRating/12",
     method: "GET",
@@ -49,6 +31,8 @@ bookControllers.controller('HomeCtrl', function ($scope,$http) {
 
 bookControllers.controller('BookCtrl', function ($scope,$http,$routeParams) {
 
+
+  $scope.categories = cats;
 
 
   var s = $routeParams.bookId+"";
@@ -66,5 +50,25 @@ bookControllers.controller('CartCtrl',function ($scope,$http){
 
 
 
+
+});
+bookControllers.controller('SearchCtrl',function ($scope,$http){
+  $scope.categories = cats;
+
+
+
+
+});
+
+bookControllers.controller('CatsCtrl',function($scope,$http,$routeParams){
+  $scope.cod = $routeParams.catCod +"";
+  $scope.categories = cats;
+
+
+  $http({
+    url: "http://127.0.0.1:49822/api/artigos/cat/" + $routeParams.catCod,
+    method: "GET",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  }).success(function(response) {$scope.books = response;});
 
 });

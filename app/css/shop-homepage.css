@@ -79,7 +79,7 @@ footer{
 }
 
 #categ{
-    margin-top: 15%;
+    margin-top: 0%;
 }
 
 a.list-group-item:hover,
@@ -98,5 +98,5 @@ a{
 }
 
 .search-bar{
-    margin-right: 30%; 
+    margin-right: 30%;
 }

@@ -1,0 +1,44 @@
+
+<div class="container">
+
+  <div class="row">
+
+    <div id="categ" class="col-md-3">
+      <p class="lead">Categories</p>
+      <div class="list-group" >
+        <div ng-repeat="cat in categories">
+          <div ng-if="cat.cod == cod">
+            <a  ng-href="#/cats/{{cat.cod}}" class="list-group-item active">{{cat.name}}</a>
+          </div>
+          <div ng-if="cat.cod != cod">
+            <a  ng-href="#/cats/{{cat.cod}}" class="list-group-item ">{{cat.name}}</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+
+      <div class="row">
+        <div ng-repeat="book in books">
+
+          <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+              <img src="http://placehold.it/320x150" alt="">
+              <div class="caption">
+                <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
+                <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:20}}{{book.DescArtigo.length > 20? '...' : ''}}</a>
+                </h4>
+                <p>{{book.Sinopse | limitTo: 150}}{{book.Sinopse.length > 150? '...' : ''}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
