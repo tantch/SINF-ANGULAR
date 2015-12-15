@@ -38,10 +38,15 @@ bookControllers.controller('HomeCtrl', function ($scope,$http,$cookies) {
 
 
 });
-bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies) {
+bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies,$location) {
 
 
-  //search aqui
+  $scope.search = function(query){
+  console.log(query);
+  $location.path('/search/'+query);
+
+  }
+
 
   var cart = $cookies.get('cart');
 
@@ -79,8 +84,15 @@ bookControllers.controller('CartCtrl',function ($scope,$http){
 
 
 });
-bookControllers.controller('SearchCtrl',function ($scope,$http){
+bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams){
   $scope.categories = cats;
+  console.log("ugh");
+   $http({
+    url: "http://127.0.0.1:49822/api/artigos/pesquisaNome/" + $routeParams.query + "/20",
+    method: "GET",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  }).success(function(response) {$scope.books = response;});
+
 
 
 
