@@ -25,7 +25,7 @@
 
           <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-              <img src="http://placehold.it/320x150" alt="">
+              <img ng-src="images/{{book.Imagem}}" alt="">
               <div class="caption">
                 <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
                 <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:20}}{{book.DescArtigo.length > 20? '...' : ''}}</a>
