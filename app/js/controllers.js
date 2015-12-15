@@ -16,7 +16,7 @@ var cats = [
 
 
 
-bookControllers.controller('HomeCtrl', function ($scope,$http) {
+bookControllers.controller('HomeCtrl', function ($scope,$http,$cookies) {
 
 
   $scope.categories = cats;
@@ -25,6 +25,33 @@ bookControllers.controller('HomeCtrl', function ($scope,$http) {
     method: "GET",
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.books = response;});
+
+  $scope.addToCart = function(book){
+
+    var tp= $cookies.getObject('cart');
+      console.log(tp.length);
+    tp.push(book);
+    console.log(tp.length);
+    $cookies.putObject('cart',tp);
+  }
+
+
+
+});
+bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies) {
+
+
+  //search aqui
+
+  var cart = $cookies.get('cart');
+
+  if(!cart){
+    console.log('cart is empty')
+    $cookies.put('cart', '[]');
+  }
+  $scope.cart = $cookies.getObject('cart');
+
+  
 
 
 });

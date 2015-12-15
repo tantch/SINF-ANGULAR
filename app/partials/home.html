@@ -54,7 +54,8 @@
                 <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
                 <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:15}}{{book.DescArtigo.length > 15? '...' : ''}}</a>
                 </h4>
-                <p>{{book.Sinopse | limitTo: 150}}{{book.Sinopse.length > 150? '...' : ''}}</p>
+                <p>{{book.Sinopse | limitTo: 70}}{{book.Sinopse.length > 70? '...' : ''}}</p>
+                  <button ng-click="addToCart(book)">Add</button>
               </div>
             </div>
           </div>

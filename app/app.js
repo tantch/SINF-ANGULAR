@@ -3,7 +3,8 @@
 var bookApp = angular.module('bookApp', [
   'ngRoute',
   'bookControllers',
-  'door3.css'
+  'door3.css',
+  'ngCookies'
 ]);
 
 bookApp.config(['$routeProvider',
