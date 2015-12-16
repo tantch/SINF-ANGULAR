@@ -1,5 +1,5 @@
 var bookControllers = angular.module('bookControllers', [
-  'ngRoute'
+  'ngRoute','ngCart'
 ]);
 
 var cats = [
@@ -16,6 +16,7 @@ var cats = [
 
 
 
+
 bookControllers.controller('HomeCtrl', function ($scope,$http,$cookies) {
 
 
@@ -26,17 +27,7 @@ bookControllers.controller('HomeCtrl', function ($scope,$http,$cookies) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.books = response;});
 
-  $scope.addToCart = function(book){
-
-    var tp= $cookies.getObject('cart');
-      console.log(tp.length);
-    tp.push(book);
-    console.log(tp.length);
-    $cookies.putObject('cart',tp);
-  }
-
-
-
+ 
 });
 bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies,$location) {
 
@@ -54,14 +45,12 @@ bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies,$locati
     console.log('cart is empty')
     $cookies.put('cart', '[]');
   }
-  $scope.cart = $cookies.getObject('cart');
 
   
 
-
 });
 
-bookControllers.controller('BookCtrl', function ($scope,$http,$routeParams) {
+bookControllers.controller('BookCtrl', function ($scope,$http,$cookies,$routeParams) {
 
 
   $scope.categories = cats;
@@ -76,6 +65,7 @@ bookControllers.controller('BookCtrl', function ($scope,$http,$routeParams) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.book = response;});
 
+  
 });
 
 bookControllers.controller('CartCtrl',function ($scope,$http){
@@ -84,7 +74,7 @@ bookControllers.controller('CartCtrl',function ($scope,$http){
 
 
 });
-bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams){
+bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams,$cookies){
   $scope.categories = cats;
   console.log("ugh");
    $http({
@@ -97,9 +87,10 @@ bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams){
 
 
 
+
 });
 
-bookControllers.controller('CatsCtrl',function($scope,$http,$routeParams){
+bookControllers.controller('CatsCtrl',function($scope,$http,$routeParams,$cookies){
   $scope.cod = $routeParams.catCod +"";
   $scope.categories = cats;
 
@@ -109,5 +100,6 @@ bookControllers.controller('CatsCtrl',function($scope,$http,$routeParams){
     method: "GET",
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.books = response;});
+
 
 });

@@ -31,7 +31,9 @@
                 <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:20}}{{book.DescArtigo.length > 20? '...' : ''}}</a>
                 </h4>
                 <p>{{book.Sinopse | limitTo: 150}}{{book.Sinopse.length > 150? '...' : ''}}</p>
+
               </div>
+                <ngcart-addtocart id="{{ book.CodArtigo}}" name="{{ book.DescArtigo }}" price="{{ book.PVP2 }}" quantity="1" quantity-max="30" >Adicionar</ngcart-addtocart>
             </div>
           </div>
         </div>

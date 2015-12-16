@@ -20,7 +20,9 @@
           <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
           <h4>{{book.DescArtigo}}</h4>
           <p>{{book.Sinopse}}</p>
+
         </div>
+         <ngcart-addtocart id="{{ book.CodArtigo}}" name="{{ book.DescArtigo }}" price="{{ book.PVP2 }}" quantity="1" quantity-max="30" >Adicionar</ngcart-addtocart>
       </div>
     </div>
   </div>

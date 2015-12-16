@@ -55,7 +55,9 @@
                 <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:15}}{{book.DescArtigo.length > 15? '...' : ''}}</a>
                 </h4>
                 <p>{{book.Sinopse | limitTo: 70}}{{book.Sinopse.length > 70? '...' : ''}}</p>
-                  <button ng-click="addToCart(book)">Add</button>
+                  <!-- <button ng-click="addToCart(book)">Add</button> -->
+                  <ngcart-addtocart id="{{ book.CodArtigo}}" name="{{ book.DescArtigo }}" price="{{ book.PVP2 }}" quantity="1" quantity-max="30" >Adicionar</ngcart-addtocart>
+
               </div>
             </div>
           </div>
