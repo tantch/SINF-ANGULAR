@@ -17,7 +17,10 @@
       <div class="thumbnail">
         <img class="img-responsive" ng-src="images/{{book.Imagem}}" alt="">
         <div class="caption-full">
+
           <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
+          <h4><a ng-href="#/author/{{book.Autor}}" >{{book.Autor}} </a></h4>
+
           <h4>{{book.DescArtigo}}</h4>
           <p>{{book.Sinopse}}</p>
 
