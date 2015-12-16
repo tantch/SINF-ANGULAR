@@ -27,7 +27,7 @@ bookControllers.controller('HomeCtrl', function ($scope,$http,$cookies) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.books = response;});
 
- 
+
 });
 bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies,$location) {
 
@@ -46,7 +46,7 @@ bookControllers.controller('HeaderCtrl', function ($scope,$http,$cookies,$locati
     $cookies.put('cart', '[]');
   }
 
-  
+
 
 });
 
@@ -65,7 +65,7 @@ bookControllers.controller('BookCtrl', function ($scope,$http,$cookies,$routePar
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   }).success(function(response) {$scope.book = response;});
 
-  
+
 });
 
 bookControllers.controller('CartCtrl',function ($scope,$http){
@@ -87,6 +87,19 @@ bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams,$coo
 
 
 
+
+
+
+});
+
+bookControllers.controller('AuthorCtrl',function ($scope,$http,$routeParams,$cookies){
+  $scope.categories = cats;
+  console.log("ugh");
+   $http({
+    url: "http://127.0.0.1:49822/api/artigos/autor/" + $routeParams.aut,
+    method: "GET",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  }).success(function(response) {$scope.books = response;});
 
 
 

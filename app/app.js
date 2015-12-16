@@ -20,6 +20,11 @@ bookApp.config(['$routeProvider',
         controller: 'BookCtrl',
         css: 'css/shop-item.css'
       }).
+      when('/author/:aut', {
+        templateUrl: 'partials/search.html',
+        controller: 'AuthorCtrl',
+        css: 'css/shop-homepage.css'
+      }).
       when('/cats/:catCod',{
         templateUrl: 'partials/cats.html',
         controller: 'CatsCtrl',
