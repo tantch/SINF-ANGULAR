@@ -70,10 +70,12 @@ bookControllers.controller('BookCtrl', function ($scope,$http,$cookies,$routePar
 
 bookControllers.controller('CartCtrl',function ($scope,$http){
 
-
+  
 
 
 });
+
+
 bookControllers.controller('SearchCtrl',function ($scope,$http,$routeParams,$cookies){
   $scope.categories = cats;
   console.log("ugh");

@@ -8,18 +8,19 @@
     <div class="card">
       <div class="front side text-left">
         PAYMENT CARD
-
-        <div class="card-form">
-          <input type="text" placeholder="Card number" class="cc-num" />
-        </div>
-        <div class="card-form">
-          Expires:
-          <input type="text" placeholder="MM/YY" class="cc-exp" />
-        </div>
-        <div class="card-form">
-          CVC:
-          <input type="text" placeholder="000" class="cc-cvc" maxlength="4" />
-        </div>
+        <form method="post">
+          <div class="card-form">
+            <input type="text" placeholder="Card number" class="cc-num" name="cnumber" />
+          </div>
+          <div class="card-form">
+            Expires:
+            <input type="text" placeholder="MM/YY" class="cc-exp" name="cexp"/>
+          </div>
+          <div class="card-form">
+            CVC:
+            <input type="text" placeholder="000" class="cc-cvc" maxlength="4" name="ccvc"/>
+          </div>
+        </form>
       </div>
     </div>
 
