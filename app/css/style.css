@@ -371,9 +371,6 @@ span{
 
 /* Totals */
 
-.totals{
-  background-color: #f2f6f9;
-}
 
 .totals span{
   padding: 40px 15px 40px 0;
@@ -434,12 +431,37 @@ span{
 }
 
 .shopping-list{
-  margin-left: 20%;
+  margin-left: 30%;
   margin-right: -50%;
   margin-top: 10%;
 }
 
 .shopping-list > li{
-  background-color: white;
-  margin-bottom: 2%
+  margin-bottom: 2%;
+}
+
+.thumbnail{
+  border-color: transparent;
+  background-color: transparent;
+}
+
+#images{
+  height: 250px;
+}
+
+.shopping{
+  margin-left: 10%;
+}
+
+.order-btn{
+  margin-left: 48%;
+  margin-top: 55%
+}
+
+.book-info{
+  margin-top: 3%;
+}
+
+.checkout-btn{
+  margin-right: 30%;
 }

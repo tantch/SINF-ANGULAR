@@ -18,7 +18,7 @@ bookApp.config(['$routeProvider',
       when('/book/:bookId', {
         templateUrl: 'partials/book.html',
         controller: 'BookCtrl',
-        css: 'css/shop-homepage.css'
+        css: 'css/shop-item.css'
       }).
       when('/cats/:catCod',{
         templateUrl: 'partials/cats.html',
@@ -28,7 +28,7 @@ bookApp.config(['$routeProvider',
       when('/cart',{
         templateUrl: 'partials/cart.html',
         controller: 'CartCtrl',
-        css: 'css/shop-homepage.css'
+        css: ['css/checkout.css','css/shop-homepage.css','css/costum.css']
       }).
       when('/search/:query',{
         templateUrl: 'partials/search.html',

@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   <title>Booky</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-css/angular-css.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/ngcart/dist/ngCart.js"></script>
+  <script src="bower_components/ngCart/dist/ngCart.js"></script>
 
   <script src="app.js"></script>
   <script src="js/controllers.js"></script>
-   <link rel="stylesheet" href="css/bootstrap.yeti.min.css"/>
-    <link rel="stylesheet" href="css/ngcart.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="css/ngcart.css"/>
 </head>
 <body >
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="HeaderCtrl">
@@ -33,43 +32,27 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-      <script src="bower_components/ngcart/src/ngCart.js"></script>
-      <script src="bower_components/ngcart/src/ngCart.directives.js"></script>
-      <script src="bower_components/ngcart/src/ngCart.fulfilment.js"></script>
+      <script src="bower_components/ngCart/src/ngCart.js"></script>
+      <script src="bower_components/ngCart/src/ngCart.directives.js"></script>
+      <script src="bower_components/ngCart/src/ngCart.fulfilment.js"></script>
 
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
           <li>
-              <a href="./#/cart" style="padding: 5px 0 0 0; width:150px">
-                <ngcart-summary></ngcart-summary>
-              </a>
+
+            <form class="navbar-form search-bar">
+              <div class="form-group">
+                <input id="search_input" name="query" ng-model="query"  type="text" class="form-control" placeholder="Search">
+                <button type="submit" ng-click="search(query)"  class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </div>
+            </form>
+          </li>
+          <li>
+            <a href="./#/cart" style="padding: 5px 0 0 0; width:150px">
+              <ngcart-summary></ngcart-summary>
+            </a>
           </li>
         </ul>
-          <!--
-        <div class="cart">
-          <div class="popup">
-            <div class="row header">
-              <span>Items</span>
-              <span>Price</span>
-            </div>
-            <div ng-repeat="book in cart">
-              <div class="row items">
-                <span>{{book.DescArtigo;}}</span>
-                <span>{{""+book.PVP2+" €";}}</span>
-              </div>
-            </div>
-            <div class="row checkout">
-              <span class="checkout-btn"><a class="checkout-button btn btn-primary" href="#/cart" role="button">Checkout</a></span>
-            </div>
-          </div>
-        </div> -->
-        <!--SEARCH FORM-->
-        <form class="navbar-form search-bar">
-          <div class="form-group">
-            <input id="search_input" name="query" ng-model="query" type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" ng-click="search(query)" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </form>
       </div>
       <!-- /.navbar-collapse -->
     </div>
@@ -81,10 +64,10 @@
   <!-- FOOTER-->
   <div class="container">
 
-    <hr>
 
     <!-- Footer -->
     <footer>
+      <hr>
       <div class="row">
         <div class="col-lg-12">
           <p>Made by David | Pedro | João | Jorge | Vânia<br>SINF 2015</p>

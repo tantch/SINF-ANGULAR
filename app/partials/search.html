@@ -21,15 +21,14 @@
 
           <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-              <img src="ng-src="images/{{book.Imagem}}"" alt="">
+              <img ng-src="images/{{book.Imagem}}" alt="">
               <div class="caption">
                 <h4 class="pull-right">{{book.PVP1 + '€'}}</h4>
                 <h4><a ng-href="#/book/{{book.CodArtigo.slice(3)}}" >{{book.DescArtigo | limitTo:20}}{{book.DescArtigo.length > 20? '...' : ''}}</a>
                 </h4>
                 <p>{{book.Sinopse | limitTo: 150}}{{book.Sinopse.length > 150? '...' : ''}}</p>
-
+              <ngcart-addtocart id="{{ book.CodArtigo}}" name="{{ book.DescArtigo }}" price="{{ book.PVP2 }}" quantity="1" quantity-max="30" >Adicionar</ngcart-addtocart>
               </div>
-               <ngcart-addtocart id="{{ book.CodArtigo}}" name="{{ book.DescArtigo }}" price="{{ book.PVP2 }}" quantity="1" quantity-max="30" >Adicionar</ngcart-addtocart>
             </div>
           </div>
         </div>
