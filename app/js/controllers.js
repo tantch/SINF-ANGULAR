@@ -68,10 +68,30 @@ bookControllers.controller('BookCtrl', function ($scope,$http,$cookies,$routePar
 
 });
 
-bookControllers.controller('CartCtrl',function ($scope,$http){
+bookControllers.controller('CartCtrl',function ($scope,$http,ngCartItem, store,ngCart){
 
-  
 
+allObjs= new Array();
+for(i=0;i<ngCart.getItems().length;i++){
+  var obj = {
+  CodArtigo: ngCart.getItems()[i]["_id"],
+  Quantidade: ngCart.getItems()[i]["_quantity"]
+  };
+  allObjs.push(obj);
+}
+console.log(allObjs);
+
+
+var obj = {
+  Entidade: "C.0001",
+  LinhasDoc: allObjs,
+  ModoPag: "MB",
+  ModoExp: "01",
+  DadosPag: "DadosPag"
+};
+
+$http.post("http://127.0.0.1:49822/api/DocVenda",
+                { data: obj});
 
 });
 
